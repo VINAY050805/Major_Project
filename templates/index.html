@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantDetect - AI-Powered Plant Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>PlantDetect</span>
+            </a>
+            <div class="nav-menu">
+                <a href="{{ url_for('home') }}" class="nav-link active">Home</a>
+                <a href="{{ url_for('predict') }}" class="nav-link">Detect Disease</a>
+                <a href="{{ url_for('history') }}" class="nav-link">History</a>
+                <a href="{{ url_for('predict') }}" class="nav-link nav-cta">
+                    <i class="fas fa-camera"></i>
+                    Scan Plant
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Detect Plant Diseases with <span class="highlight">AI Precision</span>
+                </h1>
+                <p class="hero-description">
+                    Our advanced AI system helps farmers and gardeners identify plant diseases instantly. 
+                    Simply upload a photo and get accurate diagnosis and treatment recommendations.
+                </p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('predict') }}" class="btn btn-primary btn-large">
+                        <i class="fas fa-camera"></i>
+                        Scan Your Plant
+                    </a>
+                    <a href="#features" class="btn btn-secondary btn-large">
+                        <i class="fas fa-play-circle"></i>
+                        Watch Demo
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Plant Diseases</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Plants Scanned</div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-header">
+                    <h3>Live Detection Demo</h3>
+                </div>
+                <div class="demo-content">
+                    <div class="demo-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Tomato Plant Analysis</h4>
+                    <div class="demo-result">
+                        <div class="result-status healthy">
+                            <i class="fas fa-check-circle"></i>
+                            Healthy Plant
+                        </div>
+                        <div class="confidence">98.7% Confidence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose PlantDetect?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Results</h3>
+                    <p>Get accurate disease detection in seconds with our advanced AI algorithms trained on millions of plant images.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Use our platform on any device - smartphone, tablet, or computer. Perfect for field use and on-the-go diagnostics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Reliable & Secure</h3>
+                    <p>Your data is protected with enterprise-grade security. We prioritize your privacy and data protection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Detailed Analytics</h3>
+                    <p>Track plant health over time with comprehensive analytics and historical data visualization.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Smart AI Assistant</h3>
+                    <p>Get personalized treatment recommendations and expert advice through our AI-powered chat system.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Multi-Language</h3>
+                    <p>Available in multiple languages to serve farmers and gardeners across different regions and cultures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-content">
+                        <h3>Capture Image</h3>
+                        <p>Take a clear photo of your plant's leaves, stem, or fruit using your smartphone or camera.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-content">
+                        <h3>Upload & Analyze</h3>
+                        <p>Upload the image to our platform. Our AI will analyze it against thousands of disease patterns.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-content">
+                        <h3>Get Results</h3>
+                        <p>Receive instant diagnosis with confidence scores and detailed treatment recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>PlantDetect</span>
+                    </div>
+                    <p>Advanced AI-powered plant disease detection system for farmers, gardeners, and agricultural professionals.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="{{ url_for('home') }}">Home</a>
+                    <a href="{{ url_for('predict') }}">Disease Detection</a>
+                    <a href="{{ url_for('history') }}">Scan History</a>
+                    <a href="#">About Us</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Plant Care Guide</a>
+                    <a href="#">Disease Library</a>
+                    <a href="#">Research Papers</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 PlantDetect. All rights reserved. Revolutionizing plant health monitoring with AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

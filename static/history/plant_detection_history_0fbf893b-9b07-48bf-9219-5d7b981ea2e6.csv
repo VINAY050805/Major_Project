@@ -1,0 +1,6 @@
+ID,User ID,Filename,Disease,Confidence,Timestamp
+12,0fbf893b-9b07-48bf-9219-5d7b981ea2e6,original_99ad8d6f.jpg,Grape___Black_rot,0.992891788482666,2025-10-27 10:23:49.009247
+11,0fbf893b-9b07-48bf-9219-5d7b981ea2e6,original_518003ca.jpg,Grape___Black_rot,0.992891788482666,2025-10-27 10:19:33.712691
+10,0fbf893b-9b07-48bf-9219-5d7b981ea2e6,original_3b2dc00a.jpg,Grape___Black_rot,0.9547868371009827,2025-10-27 10:07:45.777442
+9,0fbf893b-9b07-48bf-9219-5d7b981ea2e6,original_98b84697.jpg,Grape___Black_rot,0.9547868371009827,2025-10-26 20:29:39.427311
+8,0fbf893b-9b07-48bf-9219-5d7b981ea2e6,original_cd813237.jpg,Orange___Haunglongbing_(Citrus_greening),1.0,2025-10-26 20:28:26.149114

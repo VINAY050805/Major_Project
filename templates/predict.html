@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection - PlantDetect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="predict-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>PlantDetect</span>
+            </a>
+            <div class="nav-menu">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('predict') }}" class="nav-link active">Detect Disease</a>
+                <a href="{{ url_for('history') }}" class="nav-link">History</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Prediction Header -->
+    <section class="predict-header">
+        <div class="container">
+            <h1>Plant Disease Detection</h1>
+            <p>Upload an image of a plant leaf to detect diseases and get AI-powered treatment recommendations</p>
+        </div>
+    </section>
+
+    <!-- Main Prediction Section -->
+    <section class="predict-section">
+        <div class="container">
+            <!-- Upload Card -->
+            <div class="upload-card">
+                <div class="upload-header">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h2>Upload Leaf Image</h2>
+                    <p>Supported formats: PNG, JPG, JPEG | Max size: 10MB</p>
+                </div>
+                <form action="/predict" method="post" enctype="multipart/form-data" class="upload-form">
+                    <div class="file-input-container">
+                        <input type="file" name="file" id="fileInput" accept=".png,.jpg,.jpeg" required class="file-input">
+                        <label for="fileInput" class="file-input-label">
+                            <i class="fas fa-image"></i>
+                            <span>Choose Image File</span>
+                        </label>
+                        <div class="image-preview" id="imagePreview">
+                            <img id="previewImage" style="display: none;">
+                            <div id="previewText">
+                                <i class="fas fa-leaf"></i>
+                                <p>Image preview will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary upload-btn" id="uploadBtn">
+                        <i class="fas fa-search"></i>
+                        Analyze Image
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            {% if prediction %}
+            <div class="results-section" id="resultsSection" style="display: block;">
+                <h2 class="results-title">Analysis Results</h2>
+
+                <!-- Images Grid -->
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-image-container">
+                            <img id="original-img" src="{{ original_image }}" alt="Original Image" class="result-image">
+                        </div>
+                        <div class="card-header">
+                            <i class="fas fa-image"></i>
+                            Original Image
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-image-container">
+                            <img id="clahe-img" src="{{ clahe_image }}" alt="Enhanced Image" class="result-image">
+                        </div>
+                        <div class="card-header">
+                            <i class="fas fa-magic"></i>
+                            Enhanced Image
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-image-container">
+                            <img id="gradcam-img" src="{{ gradcam_image }}" alt="AI Heatmap" class="result-image">
+                        </div>
+                        <div class="card-header">
+                            <i class="fas fa-fire"></i>
+                            AI Heatmap
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prediction Result -->
+                <div class="prediction-card">
+                    <div class="prediction-content">
+                        <h2 class="prediction-title">
+                            <i class="fas fa-diagnoses"></i>
+                            Diagnosis Result
+                        </h2>
+                        <h3 id="prediction-text">{{ prediction }}</h3>
+                        <div class="confidence">
+                            <span class="confidence-value">{{ "%.1f"|format(confidence) }}% Confidence</span>
+                        </div>
+
+                        <!-- Get Help Button -->
+                        <div class="get-help-container">
+                            <button id="getHelpBtn" class="btn btn-primary get-help-btn pulse">
+                                <i class="fas fa-robot"></i>
+                                Get Treatment Advice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Section -->
+                <div class="chat-container" id="chatContainer" style="display: none;">
+                    <div class="chat-header">
+                        <h3>
+                            <i class="fas fa-comments"></i>
+                            AI Plant Assistant
+                        </h3>
+                        <p>Ask questions about treatment and prevention</p>
+                    </div>
+
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <label for="languageSelect">
+                            <i class="fas fa-language"></i>
+                            Response Language:
+                        </label>
+                        <select id="languageSelect" class="form-control">
+                            <option value="english">English</option>
+                            <option value="kannada">Kannada</option>
+                        </select>
+                    </div>
+
+                    <!-- Quick Questions -->
+                    <div class="quick-questions">
+                        <button class="quick-question" data-english="What is the best treatment for this disease?" data-kannada="ಈ ರೋಗಕ್ಕೆ ಉತ್ತಮ ಚಿಕಿತ್ಸೆ ಯಾವುದು?">
+                            Best Treatment?
+                        </button>
+                        <button class="quick-question" data-english="How can I prevent this disease?" data-kannada="ಈ ರೋಗವನ್ನು ನಾನು ಹೇಗೆ ತಡೆಯಬಹುದು?">
+                            Prevention Tips
+                        </button>
+                        <button class="quick-question" data-english="Are there organic remedies?" data-kannada="ಸಾವಯವ ಪರಿಹಾರಗಳಿವೆಯೇ?">
+                            Organic Remedies
+                        </button>
+                    </div>
+
+                    <!-- Chat Messages -->
+                    <div class="chat-box" id="chatBox">
+                        <div class="welcome-message">
+                            <i class="fas fa-robot"></i>
+                            <p>Hello! I can help you understand "{{ prediction }}" and provide treatment recommendations. Ask me anything!</p>
+                        </div>
+                        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                            <div class="typing-dots">
+                                <div class="typing-dot"></div>
+                                <div class="typing-dot"></div>
+                                <div class="typing-dot"></div>
+                            </div>
+                            <span>AI is thinking...</span>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Ask about treatment options..." class="form-control">
+                        <button id="sendButton" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Back to Home -->
+            <div class="back-home">
+                <a href="{{ url_for('home') }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Home
+                </a>
+                {% if prediction %}
+                <a href="/clear" class="btn btn-secondary">
+                    <i class="fas fa-trash"></i>
+                    Clear Results
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
