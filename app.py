@@ -109,7 +109,7 @@ except Exception as e:
 IMG_SIZE = 224
 
 # Configure Gemini API
-GEMINI_API_KEY = "AIzaSyB1vNLbqJeOjMR6gmc5i2umoX_8FD_1dcg"
+GEMINI_API_KEY = ""
 try:
     genai.configure(api_key=GEMINI_API_KEY)
     gemini_model = genai.GenerativeModel('gemini-2.5-flash')
@@ -308,7 +308,7 @@ def get_detection_stats(user_id):
 @app.before_request
 def make_session_permanent():
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(days=30)
+    app.permanent_session_lifetime = timedelta()
     if 'user_id' not in session:
         session['user_id'] = str(uuid.uuid4())
 
