@@ -135,86 +135,79 @@ Integrated chatbot features:
 
 ## 📂 Project Structure
 
-Major_Project/
-│
-├── app.py
-├── model.py
-├── requirements.txt
-│
-├── templates/
-├── static/
-│
-└── README.md
+# How to Run the Project
 
-
----
-
-## ▶️ How to Run the Project
-
-### 1️⃣ Clone the repository
+## 1. Clone the Repository
 ```bash
 git clone https://github.com/VINAY050805/Major_Project.git
 cd Major_Project
+```
 
-2️⃣ Install dependencies
+## 2. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-3️⃣ Run the application
+## 3. Run the Application
+```bash
 python app.py
+```
 
-4️⃣ Open in browser
+## 4. Open in Browser
+```text
 http://127.0.0.1:5000/
+```
 
-📦 Dataset & Model Download
+---
 
-Due to GitHub size limits, dataset and trained model are hosted externally.
+# Dataset and Model Download
 
-👉 Dataset + Model: (Paste Google Drive Link Here)
+Due to GitHub size limits, the dataset and trained model are hosted externally.
 
-📈 Results
+**Dataset + Model:** Paste Google Drive link here.
 
-Accuracy: 97.8%
+---
 
-High ROC-AUC (> 0.97)
+# Results
 
-Strong generalization performance
+- Accuracy: **97.8%**
+- ROC-AUC: **> 0.97**
+- Strong generalization performance
+- Suitable for real-time deployment
 
-Suitable for real-time deployment
+---
 
-🔮 Future Enhancements
+# Future Enhancements
 
-Expand to 50+ disease classes
+- Expand to 50+ disease classes  
+- Add soil and weather data integration  
+- Mobile application deployment  
+- Edge AI / on-device inference  
+- Multilingual farmer support  
 
-Add soil & weather data integration
+---
 
-Mobile application deployment
+# Authors
 
-Edge AI / on-device inference
-
-Multilingual farmer support
-
-👨‍💻 Authors
-
-Vinay S
-
-Dhakshath U K
-
-Prajwal M
-
-Chiranjith R S
-
-Dr. Anil Kumar C J
+- Vinay S  
+- Dhakshath U K  
+- Prajwal M  
+- Chiranjith R S  
+- Dr. Anil Kumar C J  
 
 ATME College of Engineering, Mysuru
 
-⭐ Support
+---
 
-If you like this project, give it a ⭐ on GitHub!
+# Support
 
+If you like this project, give it a ⭐ on GitHub.
 
-Now push it:
+---
 
+# Push README to GitHub
 ```bash
 git add README.md
 git commit -m "Added final README"
 git push
+```
