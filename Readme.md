@@ -135,59 +135,59 @@ Integrated chatbot features:
 
 ## 📂 Project Structure
 
-# How to Run the Project
+# ▶️ How to Run the Project
 
-## 1. Clone the Repository
+## 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/VINAY050805/Major_Project.git
 cd Major_Project
 ```
 
-## 2. Install Dependencies
+## 2️⃣ Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-## 3. Run the Application
+## 3️⃣ Run the Application
 ```bash
 python app.py
 ```
 
-## 4. Open in Browser
+## 4️⃣ Open in Browser 🌐
 ```text
 http://127.0.0.1:5000/
 ```
 
 ---
 
-# Dataset and Model Download
+# 📦 Dataset & Model Download
 
 Due to GitHub size limits, the dataset and trained model are hosted externally.
 
-**Dataset + Model:** Paste Google Drive link here.
+👉 **Dataset + Model:** Paste Google Drive link here.
 
 ---
 
-# Results
+# 📈 Results
 
-- Accuracy: **97.8%**
-- ROC-AUC: **> 0.97**
-- Strong generalization performance
-- Suitable for real-time deployment
-
----
-
-# Future Enhancements
-
-- Expand to 50+ disease classes  
-- Add soil and weather data integration  
-- Mobile application deployment  
-- Edge AI / on-device inference  
-- Multilingual farmer support  
+- Accuracy: **97.8%** 🎯  
+- ROC-AUC: **> 0.97** 📊  
+- Strong generalization performance 💪  
+- Suitable for real-time deployment ⚡  
 
 ---
 
-# Authors
+# 🔮 Future Enhancements
+
+- Expand to **50+ disease classes** 🌱  
+- Add **soil & weather data integration** 🌦️  
+- **Mobile application** deployment 📱  
+- **Edge AI / On-device inference** 🤖  
+- **Multilingual farmer support** 🌍  
+
+---
+
+# 👨‍💻 Authors
 
 - Vinay S  
 - Dhakshath U K  
@@ -195,19 +195,14 @@ Due to GitHub size limits, the dataset and trained model are hosted externally.
 - Chiranjith R S  
 - Dr. Anil Kumar C J  
 
-ATME College of Engineering, Mysuru
+**ATME College of Engineering, Mysuru**
 
 ---
 
-# Support
+# ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub.
+If you like this project, give it a ⭐ on GitHub!
 
 ---
 
-# Push README to GitHub
-```bash
-git add README.md
-git commit -m "Added final README"
-git push
-```
+
